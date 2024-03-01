@@ -1,0 +1,32 @@
+{
+    repository(owner: "appsmithorg", name: "appsmith") {
+      pullRequests(states: MERGED, last: {batchSize}${afterClause}) {
+        edges {
+          node {
+            title
+            url
+            createdAt
+            closedAt
+            mergedAt
+            author {
+              login
+            }
+            reviews(first: 100) {
+              nodes {
+                author {
+                  login
+                }
+                state
+              }
+            }
+          }
+          cursor
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+}

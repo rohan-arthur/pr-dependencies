@@ -1,0 +1,56 @@
+{
+  "unpublishedPage": {
+    "name": "Page2",
+    "slug": "page2",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1224,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 2530,
+          "containerStyle": "none",
+          "snapRows": 52,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 89,
+          "minHeight": 540,
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Page2_JSObject1.loadData",
+              "name": "JSObject1.loadData",
+              "collectionId": "Page2_JSObject1",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  const response = await GetMergedPRs.run();\n  const response_ee = await GetMergedPRs_ee.run();\n  const response_cs = await GetMergedPRs_cs.run();\n  const concatenatedEdges = [...response.data.repository.pullRequests.edges, ...response_ee.data.repository.pullRequests.edges, ...response_cs.data.repository.pullRequests.edges];\n  const allPullRequests = {\n    edges: concatenatedEdges\n  };\n  storeValue('queryResponse', response);\n  storeValue('allPullRequests', allPullRequests);\n  JSObject1.mapPodsChartWithOrgColors();\n  return allPullRequests;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "Page2",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": []
+  },
+  "deleted": false,
+  "gitSyncId": "65dd66ed2addaf21ab7fe753_65dec7546fe6f52a4ad58004"
+}

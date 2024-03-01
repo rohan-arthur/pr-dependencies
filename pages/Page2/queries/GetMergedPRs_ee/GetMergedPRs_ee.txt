@@ -1,0 +1,26 @@
+{
+  repository(owner: "appsmithorg", name: "appsmith-ee") {
+    pullRequests(states: MERGED, last: 100) {
+      edges {
+        node {
+          title
+          url
+          createdAt
+          closedAt
+          mergedAt
+          author {
+            login
+          }
+          reviews(first: 100) {
+            nodes {
+              author {
+                login
+              }
+              state
+            }
+          }
+        }
+      }
+    }
+  }
+}
